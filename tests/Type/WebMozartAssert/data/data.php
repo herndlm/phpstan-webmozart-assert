@@ -142,9 +142,9 @@ class Foo
 		\PHPStan\Testing\assertType('array<stdClass>', $ah);
 
 		Assert::isList($ai);
-		\PHPStan\Testing\assertType('array', $ai);
+		\PHPStan\Testing\assertType('array<int, mixed>', $ai);
 		Assert::allString($ai);
-		\PHPStan\Testing\assertType('array<string>', $ai);
+		\PHPStan\Testing\assertType('array<int, string>', $ai);
 
 		/** @var int[] $aj */
 		$aj = doFoo();
