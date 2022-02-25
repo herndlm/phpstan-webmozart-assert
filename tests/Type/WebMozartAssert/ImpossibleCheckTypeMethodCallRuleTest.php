@@ -47,6 +47,24 @@ class ImpossibleCheckTypeMethodCallRuleTest extends RuleTestCase
 		]);
 	}
 
+	public function testBug32(): void
+	{
+		$this->analyse([__DIR__ . '/data/bug-32.php'], [
+			[
+				'Call to static method Webmozart\Assert\Assert::integerish() with float will always evaluate to true.',
+				16,
+			],
+			[
+				'Call to static method Webmozart\Assert\Assert::integerish() with 1.0 will always evaluate to true.',
+				17,
+			],
+			[
+				'Call to static method Webmozart\Assert\Assert::integerish() with 1.001 will always evaluate to true.',
+				18,
+			],
+		]);
+	}
+
 	public function testBug33(): void
 	{
 		$this->analyse([__DIR__ . '/data/bug-33.php'], []);
